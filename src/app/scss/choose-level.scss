@@ -2,7 +2,7 @@
   min-width: 400px;
   margin-top: 40px;
   &__item{
-    .title;
+    @extend .title;
     cursor: pointer;
     font-size: 44px;
     &:hover{

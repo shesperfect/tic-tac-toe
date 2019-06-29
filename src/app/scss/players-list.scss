@@ -81,7 +81,7 @@
 }
 
 .player-one-choose:after, .player-two-choose:after{
-  .title;
+  @extend .title;
   position: absolute;
   left: 0;
   top: 0;

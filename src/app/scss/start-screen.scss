@@ -19,7 +19,7 @@
   }
   .clouds{
     z-index: 2;
-    background: transparent url(img/clouds_white.png) repeat center center;
+    background: transparent url("img/clouds_white.png") repeat center center;
     opacity: .4;
   }
   .mk-logo{
@@ -63,10 +63,10 @@
   position: absolute;
   z-index: 2;
   margin-top: 7%;
-  &__item{
-    .title;
-    background: url(img/ui/buttons.png) 0px -7px no-repeat;
-    display: block;
+
+  &__item {
+    @extend .title;
+    background: url("img/ui/buttons.png") 0px -7px no-repeat;
     height: 96px;
     width: 257px;
     display: flex;

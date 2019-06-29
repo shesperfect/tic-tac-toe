@@ -1,1 +1,59 @@
-| Home
+article.page-wrapper.flex-column.flex-align_space-between_stretch
+  section.game-container.flex-column.flex-align_space-between_stretch.flex-align-self_auto.fade-in
+    header.header-bar.flex-row.flex-wrap.hidden.slide-top
+      .blood-level.flex-40
+        .blood-level__bar
+        .blood-level__name
+      .time-counter.flex-20.flex-align_center_center.title
+        span#round-time
+      .blood-level.flex-40(flipped="")
+        .blood-level__bar
+        .blood-level__name.text-right(flipped="")
+      .victory-count.flex-100
+        .victory-count__item.flex-50.flex-align_start_center
+          .victory-count-medal
+          .victory-count-medal
+        .victory-count__item.flex-50.flex-align_end_center
+          .victory-count-medal
+    .flex
+      #level-wrapper
+        .level-decor
+          .level-sky
+            .sky-decor
+              .sky-decor-inner
+            .clouds
+              .cloud
+          .level-floor-decor
+          .level-floor
+        .play-zone
+        .screen-messages
+  footer.footer-info.flex.hidden
+    p.footer-info__text Here will be footer text
+  section.start-screen.flex-column.flex-align_center_center.flex-align-self_auto.fade-in
+    .start-screen-add-bg
+      img(src="/img/slider/1.jpg")
+      //img(src="img/slider/2.png")
+      //img(src="img/slider/3.jpg")
+      //img(src="img/slider/4.jpg")
+      //img(src="img/slider/5.jpg")
+      //img(src="img/slider/6.jpg")
+      //img(src="img/slider/7.jpg")
+    .clouds
+    .mk-logo.flex-column.flex-align_center_center
+      img(src="img/Mortal_Kombat_Logo.svg")
+    .start-screen-menu.flex-column.flex-align_end_center
+      span.start-screen-menu__item.slide-top.menu-item Start game
+      span.start-screen-menu__item.slide-top.menu-item Options
+  section.flex-row.flex-align_center_center.flex-align-self_auto.hidden.fade-in
+    .modal.flex-column.flex-align_center_stretch
+      header.title.modal-title.flex-row.flex-align_space-between_center
+        i.mdi.mdi-arrow-left
+        span Options
+        i.mdi.mdi-check
+      .modal-content.flex-row.flex-align_space-around_center.flex
+        .flex-column.flex-align_center_center.flex
+          span Overall volume: 100%
+          span Music volume: 90%
+        .flex-column.flex-align_center_center.flex
+          span Effects volume: 90%
+          span Voice volume: 90%
