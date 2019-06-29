@@ -1,0 +1,7 @@
+.cell
+  input(
+    #cell="",
+    type="checkbox",
+    [disabled]="cell.checked",
+    (input)="change()")
+  .bullet {{ type ? 'X' : 'O' }}

@@ -1,0 +1,10 @@
+app-settings(
+  *ngIf="!size || !players.length",
+  (playersNum)="playersChoosed($event)",
+  (sizeChanged)="updateSize($event)")
+
+//ng-container(*ngIf="size && players.length")
+ng-container(*ngIf="true")
+  | Player {{ type ? 1 : 2 }}! Your turn!
+  .row(*ngFor="let i of size | numArray" )
+    app-cell(*ngFor="let j of size | numArray", [currentType]="type", (fill)="check(i, j, 0)")
