@@ -1,19 +1,16 @@
 @import "reset";
-@import "fonts.scss";
-@import "buttons.scss";
+@import "fonts";
+@import "icons";
+@import "buttons";
 @import "level-decor";
-@import "general.scss";
-@import "header.scss";
+@import "general";
+@import "header";
 @import "levels";
 @import "player";
 @import "screen-messages";
 @import "soft-flex";
-@import "footer.scss";
+@import "footer";
 @import "start-screen";
 @import "players-list";
-@import "choose-level.scss";
+@import "choose-level";
 @import "options";
-
-/* Players */
-@import "players/cyrax.less";
-@import "players/kabal.less";

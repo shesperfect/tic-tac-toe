@@ -1,0 +1,22 @@
+form.players-list.flex-column.flex-align_center_center.flex-align-self_auto.fade-in
+  .flex-row.flex-align_center_stretch.slide-top.players-list__header
+    .flex-row.flex-align_center_center.flex-100.players-info-block
+      .players-list__fighter-name.flex-30.flex-row.flex-align_space-between_center
+        img(src="assets/img/mortal-kombat-logo-small-animated.gif")
+        h2.title
+          span(*ngIf="model.players[0]") {{ model.players[0].name }}
+      h2.players-list__title.title.flex.flex-align_center_center Select player {{ playerNum }}
+      .players-list__fighter-name.flex-30.flex-row.flex-align_space-between_center
+        h2.title
+          span(*ngIf="model.players[1]") {{ model.players[1].name }}
+        img(src="assets/img/mortal-kombat-logo-small-animated.gif", flipped="")
+  .flex-row.players-row.flex-grow.flex-align_center_center.slide-top
+    .flex-row.flex-align_center_center.flex-wrap#players-list-items
+      span.players-list__item.menu-item(*ngFor="let player of playersList", (click)="choose(player)")
+        img.players-list-player-image([src]="player.imgPath", width="48", height="59")
+        i.player-number {{ playerNum }}
+  .flex-row.flex-align_space-between_center.player-preview-wrapper
+    .flex.flex-align_start_end.player-preview
+      img(src="assets/img/players-list/versus/cyrax.png")
+    .flex.flex-align_start_end.player-preview(flipped="")
+      img(src="assets/img/players-list/versus/subzero.png")

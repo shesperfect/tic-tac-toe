@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -8,7 +9,9 @@ import { CellComponent } from './cell/cell.component';
 import { SettingsComponent } from './settings/settings.component';
 import { NumArrayPipe } from './num-array.pipe';
 import { HomeComponent } from './home/home.component';
-import { PlayerChooseComponent } from './player-choose/player-choose.component';
+import { PlayerSelectComponent } from './player-select/player-select.component';
+import { TicTacModel } from './model.';
+import { GuardService } from './guard.service';
 
 @NgModule({
   declarations: [
@@ -18,13 +21,15 @@ import { PlayerChooseComponent } from './player-choose/player-choose.component';
     SettingsComponent,
     NumArrayPipe,
     HomeComponent,
-    PlayerChooseComponent
+    PlayerSelectComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
-  providers: [],
+  providers: [TicTacModel, GuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

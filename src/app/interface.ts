@@ -1,4 +1,6 @@
 export interface Player {
-  field: number[][];
+  name: string;
+  imgPath: string;
+  field?: number[][];
   gender?: boolean;
 }

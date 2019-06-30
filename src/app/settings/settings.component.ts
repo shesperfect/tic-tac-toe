@@ -1,4 +1,8 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+
+import { TicTacModel } from '../model.';
 
 @Component({
   selector: 'app-settings',
@@ -6,11 +10,20 @@ import { Component, EventEmitter, Output } from '@angular/core';
   styleUrls: ['./settings.component.scss']
 })
 export class SettingsComponent {
-  @Output() sizeChanged = new EventEmitter<number>();
-  @Output() playersNum = new EventEmitter<number>();
+  form: FormGroup;
+  disabled = false;
 
-  play(size: number, playersNum: number) {
-    this.sizeChanged.emit(+size);
-    this.playersNum.emit(+playersNum);
+  constructor(private model: TicTacModel, private fb: FormBuilder, private router: Router) {
+    this.form = this.fb.group({
+      size: new FormControl(2, [Validators.min(2), Validators.max(10)])
+    });
+
+    this.form.valueChanges.subscribe(() => this.disabled = !this.form.valid);
+  }
+
+  save() {
+    this.model.size = this.form.value.size;
+
+    this.router.navigateByUrl('/');
   }
 }

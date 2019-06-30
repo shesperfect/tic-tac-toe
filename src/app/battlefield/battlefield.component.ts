@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 
 import { Player } from '../interface';
+import { TicTacModel } from '../model.';
 
 @Component({
   selector: 'app-battlefield',
@@ -8,22 +9,7 @@ import { Player } from '../interface';
   styleUrls: ['./battlefield.component.scss']
 })
 export class BattlefieldComponent {
-  size = 3;
-  type = 1;
-  players: Player[] = [
-    { field: [[], [], []] },
-    { field: [[], [], []] },
-  ];
-
-  updateSize(size: number) {
-    this.size = size;
-  }
-
-  // playersChoosed(num: number) {
-  //   for (let i = 0; i < num; i++) {
-  //     this.players.push({ field: [[]] });
-  //   }
-  // }
+  constructor(private model: TicTacModel) {}
 
   check(i: number, j: number) {
     this.players[this.type].field[i][j] = 1;

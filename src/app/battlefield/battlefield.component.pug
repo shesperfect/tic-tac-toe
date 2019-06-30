@@ -1,10 +1,42 @@
-app-settings(
-  *ngIf="!size || !players.length",
-  (playersNum)="playersChoosed($event)",
-  (sizeChanged)="updateSize($event)")
+article.page-wrapper.flex-column.flex-align_space-between_stretch
+  section.game-container.flex-column.flex-align_space-between_stretch.flex-align-self_auto.fade-in
+    header.header-bar.flex-row.flex-wrap.slide-top
+      .blood-level.flex-40
+        .blood-level__bar
+        .blood-level__name {{ model.players[0].name }}
+      .time-counter.flex-20.flex-align_center_center.title
+        span#round-time
+      .blood-level.flex-40
+        .blood-level__bar
+        .blood-level__name.text-right {{ model.players[1].name }}
+      .victory-count.flex-100
+        .victory-count__item.flex-50.flex-align_start_center
+          .victory-count-medal
+          .victory-count-medal
+        .victory-count__item.flex-50.flex-align_end_center
+          .victory-count-medal
+          .victory-count-medal
+    .flex
+      .temple#level-wrapper
+        .level-decor
+          .level-sky
+            .sky-decor
+              .sky-decor-inner
+            .clouds
+              .cloud
+          .level-floor-decor
+          .level-floor
+        .play-zone
+        .screen-messages
 
-//ng-container(*ngIf="size && players.length")
-ng-container(*ngIf="true")
-  | Player {{ type ? 1 : 2 }}! Your turn!
-  .row(*ngFor="let i of size | numArray" )
-    app-cell(*ngFor="let j of size | numArray", [currentType]="type", (fill)="check(i, j, 0)")
+
+//app-settings(
+//  *ngIf="!size || !players.length",
+//  (playersNum)="playersChoosed($event)",
+//  (sizeChanged)="updateSize($event)")
+//
+////ng-container(*ngIf="size && players.length")
+//ng-container(*ngIf="true")
+//  | Player {{ type ? 1 : 2 }}! Your turn!
+//  .row(*ngFor="let i of size | numArray" )
+//    app-cell(*ngFor="let j of size | numArray", [currentType]="type", (fill)="check(i, j, 0)")
