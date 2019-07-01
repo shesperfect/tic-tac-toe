@@ -3,6 +3,6 @@ import { Player } from './interface';
 
 @Injectable()
 export class TicTacModel {
-  size: number;
+  size = 2;
   players: Player[] = [];
 }

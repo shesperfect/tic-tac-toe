@@ -16,7 +16,7 @@ article.page-wrapper.flex-column.flex-align_space-between_stretch
         .victory-count__item.flex-50.flex-align_end_center
           .victory-count-medal
           .victory-count-medal
-    .flex
+    .flex.playground
       .temple#level-wrapper
         .level-decor
           .level-sky
@@ -28,15 +28,13 @@ article.page-wrapper.flex-column.flex-align_space-between_stretch
           .level-floor
         .play-zone
         .screen-messages
+      .battle-table
+        .border
+        .field
+          ng-container(*ngFor="let i of model.size | numArray" )
+            .cell(
+              *ngFor="let j of model.size | numArray",
+              [cell]="type",
+              [style.width]="100 / model.size + '%'",
+              (fill)="check(i, j, 0)")
 
-
-//app-settings(
-//  *ngIf="!size || !players.length",
-//  (playersNum)="playersChoosed($event)",
-//  (sizeChanged)="updateSize($event)")
-//
-////ng-container(*ngIf="size && players.length")
-//ng-container(*ngIf="true")
-//  | Player {{ type ? 1 : 2 }}! Your turn!
-//  .row(*ngFor="let i of size | numArray" )
-//    app-cell(*ngFor="let j of size | numArray", [currentType]="type", (fill)="check(i, j, 0)")

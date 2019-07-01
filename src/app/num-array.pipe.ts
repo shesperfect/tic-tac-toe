@@ -5,6 +5,6 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class NumArrayPipe implements PipeTransform {
   transform(size: number): number[] {
-    return Array(size).fill(1).map((x, i) => i);
+    return Array(size).fill(0).map((x, i) => i);
   }
 }

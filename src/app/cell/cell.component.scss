@@ -1,13 +1,12 @@
-.cell {
-  width: 30px;
-  height: 30px;
-  position: relative;
-  border: 1px solid #000;
-  margin: 3px;
-}
-
 .bullet {
   opacity: 0;
+  color: rgba(0,0,0,0.6);
+  font-size: 3vw;
+  text-shadow: 2px 2px 3px rgba(255,255,255,0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
 }
 
 input {

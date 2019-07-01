@@ -17,7 +17,7 @@ export class PlayerSelectComponent {
   constructor(private model: TicTacModel, private router: Router) {}
 
   choose(player: Player) {
-    this.model.players.push(player);
+    this.model.players.push({...player, field: Array(this.model.size).fill([])});
     ++this.playerNum > 2 && this.router.navigateByUrl('/battle');
   }
 }
