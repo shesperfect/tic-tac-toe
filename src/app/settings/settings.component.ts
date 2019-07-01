@@ -15,7 +15,7 @@ export class SettingsComponent {
 
   constructor(private model: TicTacModel, private fb: FormBuilder, private router: Router) {
     this.form = this.fb.group({
-      size: new FormControl(2, [Validators.min(2), Validators.max(10)])
+      size: new FormControl(model.size, [Validators.min(2), Validators.max(10)])
     });
 
     this.form.valueChanges.subscribe(() => this.disabled = !this.form.valid);

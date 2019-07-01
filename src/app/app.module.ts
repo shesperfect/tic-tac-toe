@@ -12,6 +12,7 @@ import { HomeComponent } from './home/home.component';
 import { PlayerSelectComponent } from './player-select/player-select.component';
 import { TicTacModel } from './model.';
 import { GuardService } from './guard.service';
+import { ButtonDirective } from './directives/button.directive';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { GuardService } from './guard.service';
     SettingsComponent,
     NumArrayPipe,
     HomeComponent,
-    PlayerSelectComponent
+    PlayerSelectComponent,
+    ButtonDirective
   ],
   imports: [
     BrowserModule,

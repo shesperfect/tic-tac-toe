@@ -12,7 +12,7 @@ form.players-list.flex-column.flex-align_center_center.flex-align-self_auto.fade
         img(src="assets/img/mortal-kombat-logo-small-animated.gif", flipped="")
   .flex-row.players-row.flex-grow.flex-align_center_center.slide-top
     .flex-row.flex-align_center_center.flex-wrap#players-list-items
-      span.players-list__item.menu-item(*ngFor="let player of playersList", (click)="choose(player)")
+      span.players-list__item.menu-item(*ngFor="let player of playersList", appButton="", (click)="choose(player)")
         img.players-list-player-image([src]="player.imgPath", width="48", height="59")
         i.player-number {{ playerNum }}
   .flex-row.flex-align_space-between_center.player-preview-wrapper

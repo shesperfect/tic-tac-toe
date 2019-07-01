@@ -12,7 +12,6 @@ export class CellComponent {
   @Output() fill = new EventEmitter();
 
   change() {
-    console.log('type', this.cell);
     this.type = this.cell;
     this.fill.emit();
   }

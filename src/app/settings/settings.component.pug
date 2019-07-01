@@ -1,10 +1,10 @@
 section#start-options-screen.flex-row.flex-align_center_center.flex-align-self_auto.fade-in
   form.modal.flex-column.flex-align_center_stretch([formGroup]="form", (submit)="save()")
     header.title.modal-title.flex-row.flex-align_space-between_center
-      button.navButton(type="button", routerLink="/")
+      button.navButton(type="button", routerLink="/", appButton="")
         i.icon-arrow-left2
       span Options
-      button.navButton(type="submit", [disabled]="disabled")
+      button.navButton(type="submit", [disabled]="disabled", appButton="")
         i.icon-checkmark
     .modal-content.flex-row.flex-align_space-around_center.flex
       .flex-column.flex-align_center_center.flex
