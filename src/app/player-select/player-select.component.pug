@@ -14,4 +14,4 @@ section.players-list.flex-column.flex-align_center_center.flex-align-self_auto.f
     .flex-row.flex-align_center_center.flex-wrap#players-list-items
       span.players-list__item.menu-item(*ngFor="let player of playersList", appButton="", (mouseenter)="hoverName = player.name", (click)="choose(player)")
         img.players-list-player-image([src]="player.imgPath", width="70", height="86")
-        i.player-number {{ playerNum }}
+        i.player-number {{ model.players.length + 1 }}

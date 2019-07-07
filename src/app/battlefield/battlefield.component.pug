@@ -26,10 +26,10 @@ article.page-wrapper.flex-column.flex-align_space-between_stretch
           .level-floor
         .play-zone
         .screen-messages
-          .title.fade-in#round-messages(*ngIf="isFinished && !showMenu")
-            span {{ model.players[type].name }} won!
-            span(*ngIf="false") Tie!
-      .battle-table(*ngIf="!isFinished")
+          .title.fade-in#round-messages(*ngIf="!showMenu")
+            span(*ngIf="hasWinner") {{ model.players[type].name }} won!
+            span(*ngIf="isDraw") Tie!
+      .battle-table(*ngIf="!hasWinner && !isDraw")
         .border
         .field
           ng-container(*ngFor="let i of model.size | numArray" )
@@ -39,6 +39,6 @@ article.page-wrapper.flex-column.flex-align_space-between_stretch
               [style.width]="100 / model.size + '%'",
               (fill)="check(i, j, 0)")
     .start-screen-menu.flex-column.flex-align_center_center(*ngIf="showMenu")
-      span.start-screen-menu__item.slide-top.menu-item((click)="revenge()", appButton="") Revenge
+      span.start-screen-menu__item.slide-top.menu-item((click)="reset()", appButton="") Revenge
       span.start-screen-menu__item.slide-top.menu-item(routerLink="/", appButton="") Home
 

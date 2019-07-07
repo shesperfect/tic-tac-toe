@@ -13,7 +13,6 @@ import { Howl } from 'howler';
 })
 export class PlayerSelectComponent implements OnInit, OnDestroy {
   playersList: Player[] = players;
-  playerNum = 1;
   hoverName: string;
   sound = new Howl({
     src: ['assets/audio/playerListMusic.mp3'],
@@ -30,7 +29,6 @@ export class PlayerSelectComponent implements OnInit, OnDestroy {
   }
 
   choose(player: Player) {
-    this.model.players.push({...player, field: Array(this.model.size).fill(0).map(() => [])});
-    ++this.playerNum > 2 && this.router.navigateByUrl('/battle');
+    this.model.players.push(player) === 2 && this.router.navigateByUrl('/battle');
   }
 }

@@ -6,10 +6,18 @@ section#start-options-screen.flex-row.flex-align_center_center.flex-align-self_a
       span Options
       button.navButton(type="submit", [disabled]="disabled", appButton="")
         i.icon-checkmark
-    .modal-content.flex-row.flex-align_space-around_center.flex
-      .flex-column.flex-align_center_center.flex
-        span Field size
-      .flex-column.flex-align_center_center.flex
-        input.form-control(type="number", min="2", max="10", formControlName="size")
-        .error-message(*ngIf="disabled")
-          span Wrong size value (2-10 range)
+    .modal-content
+      div.flex-row.flex-align_space-around_center.flex.field
+        .flex-column.flex-align_center_center.flex
+          span Field size
+        .flex-column.flex-align_center_center.flex
+          input.form-control(type="number", min="2", max="10", formControlName="size")
+          .error-message(*ngIf="form.controls.size.invalid")
+            span Wrong size value (3-100 range)
+      div.flex-row.flex-align_space-around_center.flex.field
+        .flex-column.flex-align_center_center.flex
+          span Size to win
+        .flex-column.flex-align_center_center.flex
+          input.form-control(type="number", min="2", max="10", formControlName="winSize")
+          .error-message(*ngIf="form.controls.winSize.invalid")
+            span Wrong size value (3-{{ form.controls.size.value }} range)

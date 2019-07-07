@@ -9,7 +9,7 @@ import { TicTacModel } from '../model';
   styleUrls: ['./battlefield.component.scss']
 })
 export class BattlefieldComponent implements OnInit, OnDestroy {
-  type = 0;
+  type: number;
   sounds = {
     theme: new Howl({
       src: ['assets/audio/battle1.mp3', 'assets/audio/battle2.mp3', 'assets/audio/battle3.mp3'],
@@ -21,13 +21,16 @@ export class BattlefieldComponent implements OnInit, OnDestroy {
     ],
     laugh: new Howl({src:  ['assets/audio/laugh.mp3']}),
   };
-  isFinished = false;
-  showMenu = false;
+  field: string[][] = [];
+  showMenu: boolean;
+  isDraw: boolean;
+  hasWinner: boolean;
 
   constructor(private model: TicTacModel) {}
 
   ngOnInit() {
     this.sounds.theme.play();
+    this.reset();
   }
 
   ngOnDestroy() {
@@ -35,34 +38,73 @@ export class BattlefieldComponent implements OnInit, OnDestroy {
   }
 
   check(i: number, j: number) {
-    this.sounds.kicks[this.type].play();
+    this.field[i][j] = this.type ? 'O' : 'X';
 
-    const field = this.model.players[this.type].field;
-
-    field[i][j] = 1;
-
-    // check for winner
-    const h = field[i].reduce((acc, cur) => acc + cur, 0);
-    const v = field.reduce((acc, cur) => acc + cur[j], 0);
-    const dl = field.reduce((acc, cur, index) => acc + cur[index], 0);
-    const dr = field.reduce((acc, cur, index) => acc + cur[this.model.size - index - 1], 0);
-    if ([h, v, dl, dr].find(val => val === this.model.size)) {
-      this.finish();
-    } else {
+    if (!this.checkDraw() && !this.checkSquare(i, j)) {
       this.type = Number(!this.type);
     }
   }
 
-  finish() {
-    this.isFinished = true;
+  reset() {
+    this.type = 0;
+    this.hasWinner = false;
+    this.showMenu = false;
+    this.isDraw = false;
+    for (let i = 0; i < this.model.size; i++) {
+      for (let j = 0; j < this.model.size; j++) {
+        !this.field[i] && (this.field[i] = []);
+        this.field[i][j] = '-';
+      }
+    }
+  }
+
+  private checkDraw(): boolean {
+    for (let i = 0; i < this.model.size; i++) {
+      let x = 0;
+      let y = 0;
+      for (let j = 0; j < this.model.size; j++) {
+        this.field[i][j] === 'X' && x++;
+        this.field[i][j] === 'O' && y++;
+      }
+      if (!x || !y) {
+        return;
+      }
+    }
+    this.draw();
+    return true;
+  }
+
+  private checkSquare(i: number, j: number): boolean {
+    const s = this.type ? 'O' : 'X';
+
+    if ([
+        this.field[i].reduce((acc, cur) => acc + cur, ''),
+        this.field.reduce((acc, cur) => acc + cur[j], ''),
+        this.field.slice(i - j).reduce((acc, cur, index) => acc + cur[index], ''),
+        this.field.slice(0, j - i).reduce((acc, cur, index) => acc + cur[j - i + index], ''),
+        this.field.slice(0, i + j + 1).reduce((acc, cur, index) => acc + cur[i + j - index], ''),
+      ].find(val => val.includes(s.repeat(this.model.winSize)))) {
+      this.win();
+      return true;
+    }
+    return false;
+  }
+
+  private draw() {
+    this.isDraw = true;
     this.sounds.laugh.play();
     setTimeout(() => this.showMenu = true, 5000);
   }
 
-  revenge() {
-    this.type = 0;
-    this.isFinished = false;
-    this.showMenu = false;
-    this.model.revenge();
+  private win() {
+    this.hasWinner = true;
+    this.sounds.laugh.play();
+    setTimeout(() => this.showMenu = true, 5000);
+  }
+
+  private border(val: number) {
+    if (val < 0) { return 0; }
+    if (val > this.model.size - 1) { return this.model.size - 1; }
+    return val;
   }
 }
