@@ -10,9 +10,10 @@ import { SettingsComponent } from './settings/settings.component';
 import { NumArrayPipe } from './num-array.pipe';
 import { HomeComponent } from './home/home.component';
 import { PlayerSelectComponent } from './player-select/player-select.component';
-import { TicTacModel } from './model.';
+import { TicTacModel } from './model';
 import { GuardService } from './guard.service';
 import { ButtonDirective } from './directives/button.directive';
+import { BackgroundSliderComponent } from './home/background-slider/background-slider.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { ButtonDirective } from './directives/button.directive';
     NumArrayPipe,
     HomeComponent,
     PlayerSelectComponent,
-    ButtonDirective
+    ButtonDirective,
+    BackgroundSliderComponent
   ],
   imports: [
     BrowserModule,

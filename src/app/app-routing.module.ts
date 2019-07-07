@@ -8,10 +8,13 @@ import { PlayerSelectComponent } from './player-select/player-select.component';
 import { GuardService } from './guard.service';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
+  { path: '', component: HomeComponent, children:
+      [
+        { path: 'settings', component: SettingsComponent },
+      ]
+  },
   { path: 'battle', component: BattlefieldComponent, canActivate: [GuardService] },
   { path: 'select-player', component: PlayerSelectComponent },
-  { path: 'settings', component: SettingsComponent },
   { path: '**', component: HomeComponent }
 ];
 

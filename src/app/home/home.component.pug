@@ -2,17 +2,11 @@ article.page-wrapper.flex-column.flex-align_space-between_stretch
   footer.footer-info.flex.hidden
     p.footer-info__text Here will be footer text
   section.start-screen.flex-column.flex-align_center_center.flex-align-self_auto.fade-in
-    .start-screen-add-bg
-      //img(src="assets/img/slider/1.jpg")
-      //img(src="assets/img/slider/2.png")
-      //img(src="assets/img/slider/3.jpg")
-      //img(src="assets/img/slider/4.jpg")
-      //img(src="assets/img/slider/5.jpg")
-      //img(src="assets/img/slider/6.jpg")
-      //img(src="assets/img/slider/7.jpg")
+    app-background-slider
     .clouds
     .mk-logo.flex-column.flex-align_center_center
       img(src="assets/img/Mortal_Kombat_Logo.svg")
     .start-screen-menu.flex-column.flex-align_end_center
       span.start-screen-menu__item.slide-top.menu-item(routerLink="/select-player", appButton="") Start game
       span.start-screen-menu__item.slide-top.menu-item(routerLink="/settings", appButton="") Options
+  router-outlet

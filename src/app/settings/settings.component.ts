@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
-import { TicTacModel } from '../model.';
+import { TicTacModel } from '../model';
 
 @Component({
   selector: 'app-settings',

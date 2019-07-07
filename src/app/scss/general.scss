@@ -2,6 +2,7 @@ html, body, .page-wrapper{
   height: 100%;
   min-height: 100%;
   width: 100%;
+  overflow: hidden;
 }
 
 
@@ -44,7 +45,7 @@ section{
   -o-transform: scaleX(-1);
   -webkit-transform: scaleX(-1);
   transform: scaleX(-1);
-  filter: FlipH;
+  filter: "FlipH";
   -ms-filter: "FlipH";
   text-align: right;
 }

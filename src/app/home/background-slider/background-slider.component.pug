@@ -1,0 +1,2 @@
+.start-screen-add-bg(*ngIf="current$ | async as current")
+  img(*ngFor="let i of [1,2,3,4,6,7]" src="assets/img/slider/{{ i }}.jpg", [ngClass]="{'visible': i === current}")

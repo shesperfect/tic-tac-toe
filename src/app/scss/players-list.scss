@@ -52,22 +52,10 @@
        
     }
   }
-  // .players-row:nth-child(2){
-  //   animation-delay: .4s;
-  // }
-  // .players-row:nth-child(3){
-  //   animation-delay: .6s;
-  // }
-  // .players-row:nth-child(4){
-  //   animation-delay: .8s;
-  // }
-  // .players-row:nth-child(5){
-  //   animation-delay: 1s;
-  // }
 }
 
 #players-list-items{
-  max-width: 270px;
+  max-width: 500px;
   &.players-are-choosen{
     pointer-events: none;
     opacity: .6;
@@ -119,7 +107,6 @@
 
 .player-preview-wrapper{
   position: absolute;
-  z-index: -1;
   width: 100%;
   height: 100%;
   max-width: 1024px!important;

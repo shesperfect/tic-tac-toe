@@ -1,3 +1,7 @@
+.players-list {
+  background: url(../img/levels/church/church-bg.png) no-repeat center center;
+}
+
 .players-list__item.menu-item {
   position: relative;
   &:hover .player-number {
@@ -20,4 +24,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.player-name {
+  position: relative;
+  z-index: 2;
+  color: #fff;
+  font-size: 40px;
 }
